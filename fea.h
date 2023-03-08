@@ -1,6 +1,8 @@
 #pragma once
 
-// My own DarkenAPI API
+// FEA
+// Freaking Estupid darken Api
+
 
 #include "../darken/darken.h"
 
@@ -29,10 +31,6 @@ typedef struct {
 } DarkenAPI_Entity;
 
 typedef struct {
-    DarkenAPI_System  *const s;
-    DarkenAPI_Manager *const m;
-    DarkenAPI_Entity  *const e;
-    //
     int  ( *init ) ( const $STA * );
     void ( *end  ) ( int );
 } DarkenAPI;
