@@ -4,32 +4,37 @@
 
 #include "../darken/darken.h"
 
+typedef deEntity_t     $e_t;
+typedef deManager_t    $m_t;
+typedef deSystem_t     $s_t;
+typedef deDefinition_t $de_t;
+typedef deState_t      $st_t;
+
 typedef struct {
-    void ( *init   ) ( deSystem_t *const, const deDefinition_t * );
-    void ( *update ) ( deSystem_t *const );
-    void ( *end    ) ( deSystem_t *const );
+    void ( *init   ) ( $s_t *const, const $de_t * );
+    void ( *update ) ( $s_t *const );
+    void ( *end    ) ( $s_t *const );
 } DarkenAPI_System;
 
 typedef struct {
-    void ( *init   ) ( deManager_t *const, const deDefinition_t * );
-    void ( *update ) ( deManager_t *const );
-    void ( *end    ) ( deManager_t *const );
+    void ( *init   ) ( $m_t *const, const $de_t * );
+    void ( *update ) ( $m_t *const );
+    void ( *end    ) ( $m_t *const );
 } DarkenAPI_Manager;
 
 typedef struct {
-    deEntity_t *( *new    ) ( const deDefinition_t* );
-    void        ( *state  ) ( deEntity_t *const, const deState_t *const );
-    void        ( *delete ) ( deEntity_t *const );
+    $e_t *( *new    ) ( const $de_t * );
+    void  ( *state  ) ( $e_t *const, const $st_t *const );
+    void  ( *delete ) ( $e_t *const );
 } DarkenAPI_Entity;
 
 typedef struct {
     DarkenAPI_System  *const system;
     DarkenAPI_Manager *const manager;
     DarkenAPI_Entity  *const entity;
-    int ( *init ) ( const deState_t* );
-    void ( *end ) ( int );
+    int  ( *init ) ( const $st_t* );
+    void ( *end )  ( int );
 } DarkenAPI;
-
 
 const DarkenAPI         *const $;
 const DarkenAPI_System  *const $s;
