@@ -1,11 +1,11 @@
 #include "include.h"
 #include "api.h"
 
-#define SYSTEM   & ( DarkenAPI_System  ) { system_init,  system_update,  system_destroy  }
-#define MANAGER  & ( DarkenAPI_Manager ) { manager_init, manager_update, manager_destroy }
-#define ENTITY   & ( DarkenAPI_Entity  ) { entity_new,   entity_state,   entity_delete   }
+#define SYSTEM   & ( DarkenAPI_deSystem_t  ) { de_system_init,  de_system_update,    de_system_end    }
+#define MANAGER  & ( DarkenAPI_deManager_t ) { de_manager_init, de_manager_update,   de_manager_end   }
+#define ENTITY   & ( DarkenAPI_deEntity_t  ) { de_entity_new,   de_entity_set_state, de_entity_delete }
 
 const DarkenAPI         *const $  = &(DarkenAPI) { SYSTEM, MANAGER, ENTITY, darken };
-const DarkenAPI_System  *const $s = SYSTEM;
-const DarkenAPI_Manager *const $m = MANAGER;
-const DarkenAPI_Entity  *const $e = ENTITY;
+const DarkenAPI_deSystem_t  *const $s = SYSTEM;
+const DarkenAPI_deManager_t *const $m = MANAGER;
+const DarkenAPI_deEntity_t  *const $e = ENTITY;
