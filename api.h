@@ -17,9 +17,9 @@ typedef struct {
 } DarkenAPI_Manager;
 
 typedef struct {
-    deEntity_t  *( *new    ) ( const deDefinition_t* );
-    void     ( *state  ) ( deEntity_t *const, const deState_t *const );
-    void     ( *delete ) ( deEntity_t *const );
+    deEntity_t *( *new    ) ( const deDefinition_t* );
+    void        ( *state  ) ( deEntity_t *const, const deState_t *const );
+    void        ( *delete ) ( deEntity_t *const );
 } DarkenAPI_Entity;
 
 typedef struct {
@@ -27,6 +27,7 @@ typedef struct {
     DarkenAPI_Manager *const manager;
     DarkenAPI_Entity  *const entity;
     int ( *init ) ( const deState_t* );
+    void ( *end ) ( int );
 } DarkenAPI;
 
 
