@@ -33,9 +33,9 @@ typedef struct {
 typedef struct {
     int  ( *init ) ( const $STA * );
     void ( *end  ) ( int );
-} DarkenAPI;
+} DarkenAPI_fea;
 
-const DarkenAPI         *const $;
+const DarkenAPI_fea     *const $;
 const DarkenAPI_System  *const $s;
 const DarkenAPI_Manager *const $m;
 const DarkenAPI_Entity  *const $e;
