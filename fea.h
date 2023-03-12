@@ -31,7 +31,7 @@ typedef struct {
 } DarkenAPI_Entity;
 
 typedef struct {
-    int  ( *init ) ( const $STA * );
+    int  ( *init ) ( const $DEF * );
     void ( *end  ) ( int );
 } DarkenAPI_fea;
 
