@@ -2,32 +2,37 @@
 
 #include "../darken/darken.h"
 
-typedef struct {
-    void ( *const init   ) ( deSystem_t *const, deSystem_f const, unsigned, unsigned );
-    void ( *const update ) ( deSystem_t *const );
-    void ( *const end    ) ( deSystem_t *const );
-    void ( *const add    ) ( deSystem_t *const, void *const[]);
+typedef struct deSystemAPI  deSystemAPI;
+typedef struct deManagerAPI deManagerAPI;
+typedef struct deEntityAPI  deEntityAPI;
+typedef struct deStateAPI   deStateAPI;
+
+typedef struct deSystemAPI {
+    deSystemAPI *( *const init   ) ( deSystem_t *const, deSystem_f const, unsigned, unsigned );
+    deSystemAPI *( *const update ) ( deSystem_t *const );
+    deSystemAPI *( *const end    ) ( deSystem_t *const );
+    deSystemAPI *( *const add    ) ( deSystem_t *const, void *const[]);
 } deSystemAPI;
 
-typedef struct {
-    void ( *const init   ) ( deManager_t *const, unsigned, unsigned );
-    void ( *const update ) ( deManager_t *const );
-    void ( *const end    ) ( deManager_t *const );
+typedef struct deManagerAPI {
+    deManagerAPI *( *const init   ) ( deManager_t *const, unsigned, unsigned );
+    deManagerAPI *( *const update ) ( deManager_t *const );
+    deManagerAPI *( *const end    ) ( deManager_t *const );
 } deManagerAPI;
 
-typedef struct {
-    deEntity_t *( *const new    ) ( const deState_t *, deManager_t *const );
-    void        ( *const update ) ( deEntity_t *const );
-    void        ( *const change ) ( deEntity_t *const, const deState_t *const );
-    void        ( *const jump   ) ( deEntity_t *const, const deState_t *const );
-    void        ( *const delete ) ( deEntity_t *const );
+typedef struct deEntityAPI {
+    deEntity_t  *( *const new    ) ( const deState_t *, deManager_t *const );
+    deEntityAPI *( *const update ) ( deEntity_t *const );
+    deEntityAPI *( *const change ) ( deEntity_t *const, const deState_t *const );
+    deEntityAPI *( *const jump   ) ( deEntity_t *const, const deState_t *const );
+    deEntityAPI *( *const delete ) ( deEntity_t *const );
 } deEntityAPI;
 
-typedef struct {
-    void ( *const exec   ) ( deEntity_t *const, deState_f const );
-    void ( *const enter  ) ( deEntity_t *const );
-    void ( *const update ) ( deEntity_t *const );
-    void ( *const leave  ) ( deEntity_t *const );
+typedef struct deStateAPI {
+    deStateAPI *( *const exec   ) ( deEntity_t *const, deState_f const );
+    deStateAPI *( *const enter  ) ( deEntity_t *const );
+    deStateAPI *( *const update ) ( deEntity_t *const );
+    deStateAPI *( *const leave  ) ( deEntity_t *const );
 } deStateAPI;
 
 typedef struct {
