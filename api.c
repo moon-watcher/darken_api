@@ -54,9 +54,9 @@ static deEntityAPI *const entity_change(deEntity_t *const a, const deState_t *co
     return deEntity;
 }
 
-static deEntityAPI *const entity_jump(deEntity_t *const a, const deState_t *const b)
+static deEntityAPI *const entity_set(deEntity_t *const a, const deState_t *const b)
 {
-    deEntity_jump(a, b);
+    deEntity_set(a, b);
     return deEntity;
 }
 
@@ -92,6 +92,6 @@ static deStateAPI *const state_leave(deEntity_t *const a)
 
 const deSystemAPI  *const deSystem  = & ( deSystemAPI  ) { system_init,  system_update,  system_end,    system_add                 };
 const deManagerAPI *const deManager = & ( deManagerAPI ) { manager_init, manager_update, manager_end                               };
-const deEntityAPI  *const deEntity  = & ( deEntityAPI  ) { deEntity_new, entity_update,  entity_change, entity_jump, entity_delete };
+const deEntityAPI  *const deEntity  = & ( deEntityAPI  ) { deEntity_new, entity_update,  entity_change, entity_set, entity_delete };
 const deStateAPI   *const deState   = & ( deStateAPI   ) { state_exec,   state_enter,    state_update,  state_leave                };
 const DarkenAPI    *const darkEn    = & ( DarkenAPI    ) { darken,       darken_end                                                };
