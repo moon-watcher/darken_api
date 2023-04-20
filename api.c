@@ -12,9 +12,15 @@ static deManagerAPI *const manager_update(deManager_t *const a)
     return deManager;
 }
 
+static deManagerAPI *const manager_reset(deManager_t *const a)
+{
+    deManager_reset(a);
+    return deManager;
+}
+
 static deManagerAPI *const manager_end(deManager_t *const a)
 {
-    deManager_update(a);
+    deManager_end(a);
     return deManager;
 }
 
@@ -91,7 +97,7 @@ static deStateAPI *const state_leave(deEntity_t *const a)
 }
 
 const deSystemAPI  *const deSystem  = & ( deSystemAPI  ) { system_init,  system_update,  system_end,    system_add                 };
-const deManagerAPI *const deManager = & ( deManagerAPI ) { manager_init, manager_update, manager_end                               };
-const deEntityAPI  *const deEntity  = & ( deEntityAPI  ) { deEntity_new, entity_update,  entity_change, entity_set, entity_delete };
+const deManagerAPI *const deManager = & ( deManagerAPI ) { manager_init, manager_update, manager_reset, manager_end                };
+const deEntityAPI  *const deEntity  = & ( deEntityAPI  ) { deEntity_new, entity_update,  entity_change, entity_set,  entity_delete };
 const deStateAPI   *const deState   = & ( deStateAPI   ) { state_exec,   state_enter,    state_update,  state_leave                };
 const DarkenAPI    *const darkEn    = & ( DarkenAPI    ) { darken,       darken_end                                                };
