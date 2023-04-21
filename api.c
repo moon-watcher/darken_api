@@ -93,7 +93,7 @@ static deStateAPI *const state_update(deEntity_t *const a)
 static deStateAPI *const state_leave(deEntity_t *const a)
 {
     deState_leave(a);
-    return deState;
+    return (deStateAPI *const) deState;
 }
 
 const deSystemAPI  *const deSystem  = & ( deSystemAPI  ) { system_init,  system_update,  system_end,    system_add                 };
