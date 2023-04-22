@@ -30,15 +30,15 @@ typedef struct deEntityAPI {
 } deEntityAPI;
 
 typedef struct deStateAPI {
-    deStateAPI *( *const exec   ) ( deEntity_t *const, deState_f const );
-    deStateAPI *( *const enter  ) ( deEntity_t *const );
-    deStateAPI *( *const update ) ( deEntity_t *const );
-    deStateAPI *( *const leave  ) ( deEntity_t *const );
+    deStateAPI *( *exec   ) ( deEntity_t *const, deState_f const );
+    deStateAPI *( *enter  ) ( deEntity_t *const );
+    deStateAPI *( *update ) ( deEntity_t *const );
+    deStateAPI *( *leave  ) ( deEntity_t *const );
 } deStateAPI;
 
 typedef struct {
-    int  ( *const start ) ( deState_t *const );
-    void ( *const end   ) ( int );
+    int  ( *start ) ( const deState_t *const );
+    void ( *end   ) ( int );
 } DarkenAPI;
 
 const deSystemAPI  *const deSystem;

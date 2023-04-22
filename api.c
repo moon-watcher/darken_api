@@ -1,99 +1,99 @@
 #include "api.h"
 
-static deManagerAPI *const manager_init(deManager_t *const a, unsigned b, unsigned c)
+static deManagerAPI *manager_init(deManager_t *const a, unsigned b, unsigned c)
 {
     deManager_init(a, b, c);
-    return deManager;
+    return (deManagerAPI *) deManager;
 }
 
-static deManagerAPI *const manager_update(deManager_t *const a)
+static deManagerAPI *manager_update(deManager_t *const a)
 {
     deManager_update(a);
-    return deManager;
+    return (deManagerAPI *) deManager;
 }
 
-static deManagerAPI *const manager_reset(deManager_t *const a)
+static deManagerAPI *manager_reset(deManager_t *const a)
 {
     deManager_reset(a);
-    return deManager;
+    return (deManagerAPI *) deManager;
 }
 
-static deManagerAPI *const manager_end(deManager_t *const a)
+static deManagerAPI *manager_end(deManager_t *const a)
 {
     deManager_end(a);
-    return deManager;
+    return (deManagerAPI *) deManager;
 }
 
-static deSystemAPI *const system_init(deSystem_t *const a, deSystem_f const b, unsigned c, unsigned d)
+static deSystemAPI *system_init(deSystem_t *const a, deSystem_f const b, unsigned c, unsigned d)
 {
     deSystem_init(a, b, c, d);
-    return deSystem;
+    return (deSystemAPI *) deSystem;
 }
 
-static deSystemAPI *const system_update(deSystem_t *const a)
+static deSystemAPI *system_update(deSystem_t *const a)
 {
     deSystem_update(a);
-    return deSystem;
+    return (deSystemAPI *) deSystem;
 }
 
-static deSystemAPI *const system_end(deSystem_t *const a)
+static deSystemAPI *system_end(deSystem_t *const a)
 {
     deSystem_end(a);
-    return deSystem;
+    return (deSystemAPI *) deSystem;
 }
 
-static deSystemAPI *const system_add(deSystem_t *const a, void *const b[])
+static deSystemAPI *system_add(deSystem_t *const a, void *const b[])
 {
     deSystem_add(a, b);
-    return deSystem;
+    return (deSystemAPI *) deSystem;
 }
 
-static deEntityAPI *const entity_update(deEntity_t *const a)
+static deEntityAPI *entity_update(deEntity_t *const a)
 {
     deEntity_update(a);
-    return deEntity;
+    return (deEntityAPI *) deEntity;
 }
 
-static deEntityAPI *const entity_change(deEntity_t *const a, const deState_t *const b)
+static deEntityAPI *entity_change(deEntity_t *const a, const deState_t *const b)
 {
     deEntity_change(a, b);
-    return deEntity;
+    return (deEntityAPI *) deEntity;
 }
 
-static deEntityAPI *const entity_set(deEntity_t *const a, const deState_t *const b)
+static deEntityAPI *entity_set(deEntity_t *const a, const deState_t *const b)
 {
     deEntity_set(a, b);
-    return deEntity;
+    return (deEntityAPI *) deEntity;
 }
 
-static deEntityAPI *const entity_delete(deEntity_t *const a)
+static deEntityAPI *entity_delete(deEntity_t *const a)
 {
     deEntity_delete(a);
-    return deEntity;
+    return (deEntityAPI *) deEntity;
 }
 
-static deStateAPI *const state_exec(deEntity_t *const a, deState_f const b)
+static deStateAPI *state_exec(deEntity_t *const a, deState_f const b)
 {
     deState_exec(a, b);
-    return deState;
+    return (deStateAPI *) deState;
 }
 
-static deStateAPI *const state_enter(deEntity_t *const a)
+static deStateAPI *state_enter(deEntity_t *const a)
 {
     deState_enter(a);
-    return deState;
+    return (deStateAPI *) deState;
 }
 
-static deStateAPI *const state_update(deEntity_t *const a)
+static deStateAPI *state_update(deEntity_t *const a)
 {
     deState_update(a);
-    return deState;
+    return (deStateAPI *) deState;
 }
 
-static deStateAPI *const state_leave(deEntity_t *const a)
+static deStateAPI *state_leave(deEntity_t *const a)
 {
     deState_leave(a);
-    return (deStateAPI *const) deState;
+    return (deStateAPI *) deState;
 }
 
 const deSystemAPI  *const deSystem  = & ( deSystemAPI  ) { system_init,  system_update,  system_end,    system_add                 };
